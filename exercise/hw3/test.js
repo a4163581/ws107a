@@ -13,6 +13,18 @@ describe('case test', function() {
     .expect(200)
     .expect('你好', done)
   });
+  it('/name should say "neil"', function(done) {
+    request
+    .get('/name')
+    .expect(200)
+    .expect('neil', done)
+  });
+  it('/id should say "110510551"', function(done) {
+    request
+    .get('/id')
+    .expect(200)
+    .expect('110510551', done)
+  });
   it('/xxx/yyy should status = 404', function(done) {
     request
     .get('/xxx/yyy')
