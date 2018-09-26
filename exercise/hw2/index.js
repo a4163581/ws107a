@@ -10,6 +10,6 @@ const ccclodash3 = {}
 ccclodash3.chunk = chunk
 ccclodash3.concat = concat
 module.exports = ccclodash3
-
+console.log("chunk(['a', 'b', 'c', 'd'], 2) =", chunk(['a', 'b', 'c', 'd'], 2))
 // console.log("chunk(['a', 'b', 'c', 'd'], 2) =", chunk(['a', 'b', 'c', 'd'], 2))
 
