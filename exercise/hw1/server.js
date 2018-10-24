@@ -1,20 +1,30 @@
-const http = require('http')
+const http = require('http');
 
-http.createServer((req, res) => {
-  console.log('url=', req.url)
-  // console.log('method=', req.method)
-  // console.log('headers=', req.headers)
+const server = http.createServer(function (req, res) {
+    if(req.url == "/hello") {
+        res.writeHead(200, {'Content-Type': "text/plain; charset=utf-8"});
+        res.write("你好");
+        console.log("你好");
+        res.end();
+    }
+    else if(req.url == "/name") {
+        res.writeHead(200, {'Content-Type': "text/plain; charset=utf-8"});
+        res.write("賴俊諺");
+        console.log("賴俊諺");
+        res.end();
+    }
+    else if(req.url == "/id") {
+        res.writeHead(200, {'Content-Type': "text/plain; charset=utf-8"});
+        res.write("110510524");
+        console.log("110510524");
+        res.end();
+    }
+    else {
+        res.writeHead(404, {'Content-Type': "text/plain"});
+        res.end();
+    }
+})
 
-  res.setHeader('Content-Type', 'text/html')
-  var head = '<html><head><meta charset="UTF-8" /></head><body>'
-  var tail = '</body></html>'
-  switch (req.url) {
-    case '/hello' : res.write(head+'你好'+tail); break
-    case '/name'  : res.write(head+'陳鍾誠'+tail); break
-    case '/id'    : res.write(head+'1234567'+tail); break
-    default  : res.statusCode = 404;
-  }
-  res.end()
-}).listen(3000)
+server.listen(3000);
 
-console.log('Server runnint at http://localhost:3000/')
+console.log('Server running at http://localhost:3000');
